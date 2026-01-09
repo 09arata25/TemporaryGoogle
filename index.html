@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Google検索</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f2f2f2;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .search-box {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    h1 span:nth-child(1) { color: #4285F4; }
+    h1 span:nth-child(2) { color: #EA4335; }
+    h1 span:nth-child(3) { color: #FBBC05; }
+    h1 span:nth-child(4) { color: #4285F4; }
+    h1 span:nth-child(5) { color: #34A853; }
+    h1 span:nth-child(6) { color: #EA4335; }
+
+    textarea {
+      width: 100%;
+      height: 70px;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      resize: none;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #4285F4;
+      box-shadow: 0 0 0 2px rgba(66,133,244,0.2);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background: #4285F4;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #357ae8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="search-box">
+
+
+    <textarea id="query" placeholder="検索したい言葉を入力"></textarea>
+    <button onclick="search()">Googleで検索</button>
+  </div>
+
+  <script>
+    function search() {
+      const q = document.getElementById("query").value.trim();
+      if (!q) return;
+      const url = "https://www.google.com/search?q=" + encodeURIComponent(q) + "&EgZjaHJvbWUyCQgAEEUYORiABDIHCAEQABiABDIICAIQABgHGB4yCAgDEAAYclassroom.google.comBxgeMgcIBBAAGO8FMgwIBRAAGA11324012751cYCBgKGB7SAQg0MzgwajBqN6gC695fa301-0998-8321-8e93-5f6a94f0a5e3";
+      location.href = url;
+    }
+
+    document.getElementById("query").addEventListener("keydown", e => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        search();
+      }
+    });
+  </script>
+
+</body>
+</html>
